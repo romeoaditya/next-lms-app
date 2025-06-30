@@ -2,9 +2,9 @@ import {PricingTable} from "@clerk/nextjs";
 
 const Subscription = () => {
   return (
-    <div className="mx-5">
+    <main>
       <PricingTable />
-    </div>
+    </main>
   );
 };
 
