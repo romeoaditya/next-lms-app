@@ -1,5 +1,7 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
+import {useState} from "react";
 
 interface CompanionCardProps {
   id: string;
@@ -18,13 +20,19 @@ const CompanionCard = ({
   duration,
   color,
 }: CompanionCardProps) => {
+  const [isBookmark, setIsBookmark] = useState(true);
   return (
     <article className="companion-card" style={{backgroundColor: color}}>
       <div className="flex justify-between items-center">
         <div className="subject-badge">{subject}</div>
-        <button className="companion-bookmark">
+        <button
+          className="companion-bookmark"
+          onClick={() => setIsBookmark(!isBookmark)}
+        >
           <Image
-            src="/icons/bookmark.svg"
+            src={
+              isBookmark ? "/icons/bookmark.svg" : "/icons/bookmark-filled.svg"
+            }
             width={12.5}
             height={15}
             alt="bookmark"
